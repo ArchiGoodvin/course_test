@@ -15,12 +15,14 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class IsoscelesTriangle extends Triangle {
     private static final Logger log = getLogger(IsoscelesTriangle.class);
 
-    public IsoscelesTriangle(Point first, Point second, Point third) {
+    public IsoscelesTriangle(Point first, Point second, Point third)
+    {
         super(first, second, third);
     }
 
     @Override
-    public boolean exists() {
-       return super.exists();
+    public boolean exists()
+    {
+       return (super.exists() && getAb()==getAc() && getAb()==getBc());
     }
 }

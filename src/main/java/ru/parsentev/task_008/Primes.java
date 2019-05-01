@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -23,6 +24,28 @@ public class Primes {
     }
 
     public List<Integer> calc() {
-        throw new UnsupportedOperationException();
+
+        List<Integer> simple = new ArrayList<Integer>();
+        simple.add(2);
+        int i=3;
+
+        while (i<=limit) {
+            if (checkSimple(i, simple)) {
+                simple.add(i);
+            }
+            i = i + 2;
+        }
+        return simple;
     }
+
+    public static boolean checkSimple(int i, List<Integer> list){
+
+        for (int j=0; j<list.size();j++){
+            if (i%list.get(j) == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

@@ -18,7 +18,15 @@ public class Brackets {
         this.line = line;
     }
 
-    public boolean isCorrect() {
-        throw new UnsupportedOperationException();
+    public boolean isCorrect()
+    {
+        int index = 0;
+        for (int i = 0; i < line.length(); i++) {
+            if (line.substring(i,i+1).equals("(")) index++;
+            if (line.substring(i,i+1).equals(")")) index--;
+            if (index<0) return false;
+        }
+        if (index>0) return false;
+        else return true;
     }
 }

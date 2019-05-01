@@ -28,6 +28,22 @@ public class RightTriangle extends Triangle {
 
     @Override
     public boolean exists() {
-        return super.exists();
+        boolean result = false;
+        if ((getAb()>getAc() && (getAb()>getBc()))) {
+            if (Math.round(getAb() * getAb()) == getBc() * getBc() + getAc() * getAc()) {
+                result = true;
+            }
+        }
+        if ((getBc()>getAc()) && (getBc()>getAb())) {
+            if (Math.round(getBc() * getBc()) == getAb() * getAb()+ getAc() * getAc()) {
+                result = true;
+            }
+        }
+        if ((getAc()>getBc()) && (getAc()>getAb())) {
+            if (Math.round(getAc() * getAc()) == getAb() * getAb()+ getBc() * getBc()) {
+                result = true;
+            }
+        }
+        return (super.exists() && result);
     }
 }

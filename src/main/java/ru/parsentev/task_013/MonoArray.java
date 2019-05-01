@@ -20,7 +20,11 @@ public class MonoArray {
         this.values = values;
     }
 
-    public boolean exists() {
-        throw new UnsupportedOperationException();
+    public boolean exists()
+    {
+        for (int i = 0; i < values.length-1; i++) {
+            if (values[i]!=values[i+1]) return false;
+        }
+        return true;
     }
 }

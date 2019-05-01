@@ -19,7 +19,16 @@ public class SequenceArray {
         this.values = values;
     }
 
-    public boolean containsOneSequence() {
-        throw new UnsupportedOperationException();
+    public boolean containsOneSequence()
+    {
+        int counter=0;
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] == 1){
+                counter++;
+                if (counter>2) return true;
+            } else counter=0;
+
+        }
+        return false;
     }
 }
