@@ -20,7 +20,28 @@ public class Pool {
         this.values = values;
     }
 
-    public int maxUnion() {
-        throw new UnsupportedOperationException();
+    public int maxUnion()
+    {
+        int count = 0;
+        int max = 0;
+        for (int i = 0; i < values.length; i++) {
+            for (int j = 0; j <values[0].length ; j++) {
+                if (values[i][j] == 1)
+                {count = maxUnion (i,j);
+                 if (max<count) max=count;}
+            }
+        }
+        return max;
+    }
+
+    private int maxUnion (int x, int y){
+
+        if (x > values.length-1
+            || y > values[0].length-1
+                || values[x][y] == 0) return 0;
+
+        values[x][y] = 0;
+        return 1 + maxUnion(x+1,y)
+                + maxUnion(x,y+1);
     }
 }

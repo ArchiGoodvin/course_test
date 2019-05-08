@@ -34,14 +34,15 @@ public class CycleShift {
         int startCycle = 0;
         for (int i = 0; i < values.length; i++) {
             if ((index+position)>=values.length) {
-                index=index-values.length;}
+                index = index-values.length;}
+
             dop1 = values[index+position];
             values[index+position]= dop0;
             dop0 = dop1;
 
             if ((index+position)==startCycle) {
                 index++;
-                dop0 =values[index+position];
+                dop0 = values[index+position];
                 startCycle++;
             }
             index = index+position;

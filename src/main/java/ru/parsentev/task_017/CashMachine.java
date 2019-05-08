@@ -1,19 +1,21 @@
 package ru.parsentev.task_017;
 
-import org.slf4j.Logger;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-import static org.slf4j.LoggerFactory.getLogger;
+
 
 /**
  * TODO: comment
  *
- * @author parsentev
+ * @author job4j
  * @since 28.07.2016
  */
 public class CashMachine {
-    private static final Logger log = getLogger(CashMachine.class);
 
     private final int[] values;
 
@@ -22,6 +24,24 @@ public class CashMachine {
     }
 
     public List<List<Integer>> exchange(int note) {
-        throw new UnsupportedOperationException();
+        return this.exchange(note, 0);
     }
+
+    public List<List<Integer>> exchange(int note, int step) {
+        List<List<Integer>> data = new ArrayList<List<Integer>>();
+        for (int index = step; index != this.values.length; index++) {
+            final int value = this.values[index];
+            int rsl = note - this.values[index];
+            if (rsl == 0) {
+                data.add(new ArrayList<Integer>(Collections.singletonList(value)));
+            } else {
+                for (List<Integer> sub : this.exchange(rsl, index)) {
+                    sub.add(value);
+                    data.add(sub);
+                }
+            }
+        }
+        return data;
+    }
+
 }

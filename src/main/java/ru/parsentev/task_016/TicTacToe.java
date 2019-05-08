@@ -21,6 +21,7 @@ public class TicTacToe {
     }
 
     public boolean hasWinner() {
-        throw new UnsupportedOperationException();
+
+        return true;
     }
 }

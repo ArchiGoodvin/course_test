@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
 public class UniqueCharsTest {
     @Test
     public void hasNotUnique() {
-        UniqueChars unique = new UniqueChars("2+2");
+        UniqueChars unique = new UniqueChars("Mississippi");
         int result = unique.unique();
-        assertThat(result, is(2));
+        assertThat(result, is(4));
     }
 
     @Test
